@@ -86,15 +86,12 @@ namespace Minefield_Game
                 }
                 if (Playing.winControl(Program.map))
                 {
-                    
-                    //sırayla tüm butonların textini önce temizle sonra win yazdır(bomba olanlar hariç
                     for (int a = 0; a < n; a++)
                     {
                         for (int b = 0; b < n; b++)
                         {
                             if (buttons[a, b].isBomb)
                             {
-                                //image clear
                                 buttons[a, b].button.Image = null;
                                 buttons[a, b].button.Image = Resources.bomb;
                                 
@@ -123,25 +120,18 @@ namespace Minefield_Game
             {
                 buttons[i, j].isFlag = false;
                 buttons[i, j].button.Image = null;
-                //if right click is pressed again, it will call the click event
                 buttons[i, j].button.Click += (sender, e) => Click_Button(i, j);
-                //this is not working   
-                buttons[i, j].button.MouseUp += (sender, e) => RightClick_Button(i, j);
-                //this is not working
-
 
             }
             else
             {
                 buttons[i, j].isFlag = true;
-                //use as path to flag image
-
                 buttons[i, j].button.Image = Resources.flag1;
                 buttons[i, j].button.ImageAlign = ContentAlignment.MiddleCenter;
             }
         }
 
-
+        
 
 
         public void SetBombs(int bomb_)
